@@ -164,7 +164,7 @@ Resultado10= not False #Devuelve True
 #Metodos de CADENAS
 
 
-cadena1 = "Welcome"
+cadena1 = "Welcome , Richard"
 cadena2 = "Trevor"
 
 print(dir(cadena1)) #Dir indica la cantidad de funciones que podemos emplear
@@ -176,7 +176,7 @@ primer_letra_mayuscula = cadena2.capitalize #Convierte primer letra en mayuscula
 busqueda_find = cadena1.find("e") #Busca cadena en otra cadena, si no hay coincidencias devuelve -1
 print (busqueda_find)
 
-busqueda_index = cadena1.index("2") #Misma funcion que con Find, pero lanza una Excepcion 
+busqueda_index =cadena1.index("Welcome") #Misma funcion que con Find, pero lanza una Excepcion 
 
 print (mayusc)
 
@@ -185,6 +185,100 @@ es_numerico = cadena1.isnumeric()
 #Si es numerico devuelve True
 es_alfanumerico = cadena1.isalpha
 #Si es alfanumerico devuelve true
+
+
+contar_coincidencias = cadena1.count("e")
+print (contar_coincidencias)
+#Buscamos una cadena en otra cadena, devuelve la cantidad de coincidencias
+
+contar_caracteres = len(cadena1)
+print(contar_caracteres)
+#Cuenta cantidad de caracteres en una cadena
+
+
+#Verificamos si una cadena empieza con otra cadena dada, si es asi devuelve True
+empieza_con = cadena1.startswith("We")
+print (empieza_con)
+#Y si termina..
+termina_con = cadena1.endswith("me")
+print(termina_con)
+
+cadena_nueva = cadena1.replace("me","meeeeee")
+#Reemplaza partes de la cadena, el primer parametro es la parte vieja a reemplazar y el segundo el reemplazante 
+print(cadena_nueva)
+
+cadena_separada = cadena1.split(",")
+print(type(cadena_separada))
+print (cadena_separada[0])
+#Split divie el contenido de la cadena en una lista
+
+#Metodos de Listas
+
+lista = list(["Hello","World","Help", 12, 2,4])
+#Crea una lista con el metodo List, (Poco usual)
+
+lista.append("1")
+#Agrega elemento a la lista
+
+lista.insert(2,"Not")
+#Agrega en el indice seleccionado (primer parametro) el contenido del segundo parametro
+
+lista.extend([False, 2020, 2012])
+#Agrega varios elementos a la lista
+
+
+lista.pop(2)
+#Eliminar un elemento a la lista por su indice colocando como parametro
+lista.pop (-1) #Manera de seleccionar para eliminar ultimo elemento 
+
+lista.remove ("Hello")
+#Eliminar elemento por su valor
+
+lista.clear()
+#Elimina todos elementos
+
+lista.sort() #Debe ser una lista sin elementos de Texto
+#Ordena los elementos de menor a mayor, el False va antes del True
+
+lista.reverse()
+#Invierte los elementos de la lista 
+
+
+#Metodos de diccionarios 
+
+diccionario2 = {
+      "name" : "Luke",
+       "Age" : 18,
+      "Subname" : "Astro"
+}
+
+claves = diccionario2.keys () #Devuelve las claves
+print (claves)
+
+diccionario2.pop("name", "Age")
+#Elimina un elemento o dos
+
+diccionario2.clear 
+#Elimina todos los elementos del diccionario
+
+
+
+#Inputs
+#Pedirle datos al usuario
+
+ingreso_input = input ("Ingrese nombre: ")
+
+print (f"El nombre es  {ingreso_input} ")
+
+
+#Solicitar numero al input
+
+numeroingresado = input("Indique un numero:   ")
+
+resultado11 = int(numeroingresado) * 3 
+#Convierto el numero a entero para operar aritmeticamente o puede ser a float 
+
+print(resultado11)
 
 
 

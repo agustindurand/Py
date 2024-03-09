@@ -39,3 +39,14 @@ if validar_contrasena(contrasena):
     print("La contraseña es válida.")
 else:
     print("La contraseña no es válida.")
+    
+    
+    
+ #Escribe un programa en Python que solicite al usuario un número entero positivo y luego calcule la suma de todos los números pares desde 1 hasta el número ingresado por el usuario (inclusive
+    
+    
+    numero_ingresado = int (input("Ingrese un numero entero:  "))
+    
+    
+ 
+    
