@@ -281,6 +281,32 @@ resultado11 = int(numeroingresado) * 3
 print(resultado11)
 
 
+#Variables 2.0
+
+datos1 = ("Steve" , "Trevor" , "Daniel", 100000)
+
+nombre1, nombre2, nombre3, cantidad = datos1 #Forma de desempaquetado
+#Funciona con Tuplas y Listas
+
+
+#Conjuntos con Set
+
+conjunto2 = set(["Dato1", "Dato2"])
+print(conjunto2)
+
+#Un conjunto dentro de otro conjunto
+
+conjunto3  = frozenset{"dato12", "dato13"} #Hace que el conjunto sea inmutable, solamente con esta funcion
+conjunto4 = {"dato14", "dato15"}
+print (conjunto4)
+
+#Subconjunto
+
+conjunto7 = {1,1,1,1,12,2,2,2,2,2,3,45,6,67,8}
+conjunto8 = {1, 2}
+#Verificar si es un subconjunto con el metodo .issubset o superconjunto con .issuperset 
+
+resultado16 = conjunto8.issubset(conjunto7)
 
 
 
