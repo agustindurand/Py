@@ -296,7 +296,7 @@ print(conjunto2)
 
 #Un conjunto dentro de otro conjunto
 
-conjunto3  = frozenset{"dato12", "dato13"} #Hace que el conjunto sea inmutable, solamente con esta funcion
+conjunto3  = frozenset("dato12", "dato13") #Hace que el conjunto sea inmutable, solamente con esta funcion
 conjunto4 = {"dato14", "dato15"}
 print (conjunto4)
 
@@ -309,4 +309,7 @@ conjunto8 = {1, 2}
 resultado16 = conjunto8.issubset(conjunto7)
 
 
+#Diccionarios
 
+diccionario3 = dict(Animal="Leon", Clasificacion="Mamifero")
+print(diccionario3)
