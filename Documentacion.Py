@@ -171,7 +171,7 @@ print(dir(cadena1)) #Dir indica la cantidad de funciones que podemos emplear
 
 mayusc = cadena2.upper() #Convierte en Mayuscula
 minusc = cadena2.lower () #Convierte en Minuscula
-primer_letra_mayuscula = cadena2.capitalize #Convierte primer letra en mayuscula
+primer_letra_mayuscula = cadena2.capitalize() #Convierte primer letra en mayuscula
 
 busqueda_find = cadena1.find("e") #Busca cadena en otra cadena, si no hay coincidencias devuelve -1
 print (busqueda_find)
@@ -183,7 +183,7 @@ print (mayusc)
 
 es_numerico = cadena1.isnumeric()
 #Si es numerico devuelve True
-es_alfanumerico = cadena1.isalpha
+es_alfanumerico = cadena1.isalpha()
 #Si es alfanumerico devuelve true
 
 
@@ -255,10 +255,10 @@ diccionario2 = {
 claves = diccionario2.keys () #Devuelve las claves
 print (claves)
 
-diccionario2.pop("name", "Age")
+diccionario2.pop("name")
 #Elimina un elemento o dos
 
-diccionario2.clear 
+diccionario2.clear()
 #Elimina todos los elementos del diccionario
 
 
@@ -296,7 +296,7 @@ print(conjunto2)
 
 #Un conjunto dentro de otro conjunto
 
-conjunto3  = frozenset("dato12", "dato13") #Hace que el conjunto sea inmutable, solamente con esta funcion
+conjunto3  = frozenset(["dato12", "dato13"]) #Hace que el conjunto sea inmutable, solamente con esta funcion
 conjunto4 = {"dato14", "dato15"}
 print (conjunto4)
 
@@ -313,3 +313,64 @@ resultado16 = conjunto8.issubset(conjunto7)
 
 diccionario3 = dict(Animal="Leon", Clasificacion="Mamifero")
 print(diccionario3)
+
+#Bucle For
+
+#Iterar_Listas
+
+lista_animales = ["gato", "perro", "cocodrilo", "leon", "pez"]
+lista_numeros = [52,33,22,11,12]
+
+#Recorre la lista
+for animal in lista_animales: 
+    print (f"Ahora la variable animal es igual: {animal}")
+    
+
+for numero, animal in zip(lista_animales, lista_numeros):
+    print(f"Recorriendo lista 1: {numero}")
+    print(f"Recorriendo lista 2: {animal}")
+    #Con ZIP se recorren dos listas simultaneamente
+    
+for num in range (5,10):
+    print(num) #Con la funcion range arroja valores entre los parametros que se indican
+
+#Utilizando Else en For
+
+for numero in lista_numeros: 
+      print (f"Ejecutando el ultimo bucle, valor actual: {numero}")
+else:
+      print("Buscle finalizado")
+      
+#Iterar sobre Diccionario con funcion items() para obtener clave y valor
+
+diccionario_iterable = { 
+"number" : 12,
+"views" : 19999,
+"name" : "O.O"  }
+
+for datos in diccionario_iterable.items(): 
+    key = datos [0]
+    value = datos [1]
+    print(f"La clave es: {key} y el valor es {value}")
+
+
+#For In con Continue
+
+verduras = ["esparragos", "batata", "brocoli", "guisantes", "puerro", "lechuga"]
+ 
+for verdura in verduras: 
+      if verdura == "brocoli":
+          continue #Excluye recorrer el elemento indicado 
+      print(f"Me voy a comer {verdura}")
+      
+#Evitar que el bucle continue con instruccion Break
+
+for verdura in verduras:
+    print (f"Voy a comer: {verdura}")
+    if verdura == "puerro":
+      break #Finaliza la iteracion en el elemento indicaco y no sigue iterando 
+else :
+    print("terminado")
+    
+
+#Bucle While 
