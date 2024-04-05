@@ -374,3 +374,27 @@ else :
     
 
 #Bucle While 
+
+contador = 0
+ 
+while contador < 10:
+    print(contador)
+    contador += 1 
+    
+
+#Funciones Integradas 
+  #Funciones propias de Python (Build-In)
+  
+  #Maximo para encontrar el numero mayor
+  
+
+lista_de_maximo = [1,2,3,4,5,6,7,8]
+numero_mas_alto = max(lista_de_maximo) #MAX
+print (numero_mas_alto)
+
+#Redondear a decimales 
+  
+  
+  
+  
+
