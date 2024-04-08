@@ -37,23 +37,28 @@ print(f"Ver 10 horas de este curso equivale a ver {promedio_tiempo_cursos * 100 
 
 
 
-#Ejercicio 2. Hoy falto el profesor de clases, y los chicos se organizaron para armar su clase, un alumno es el profesor y el otro es el asistente. 
+#Ejercicio 2.
+# Hoy falto el profesor de clases, y los chicos se organizaron para armar su clase, un alumno es el profesor y el otro es el asistente. 
 #A) Solicitar la edad de los compañeros que asistieron a clase y ordenar datos de mayor a menos 
 #B) El mayor de la clase es el profesor y el menor es el asistente, ¿Quien es quien?
 
 
-def obtener_compañeros (cantidad):
-    compañeros = []
-    for i in range(18):
-        nombre = input("Ingrese el nombre del compañero: ")
+def obtener_compañeros (cantidad): #Declaracion de funcion con argumento 
+    compañeros = []                #Se crea una lista vacia llamada Compañeros la cual va a almacenar nombres y edades 
+    for i in range(cantidad):      #Bucle for que se va a iterar la cantidad de veces que sea el numero del argumento 
+        nombre = input("Ingrese el nombre del compañero: ") #Dentro del bucle, se solicita al usuario que ingrese el nombre y la edad de cada compañero. El nombre se guarda en la variable nombre y la edad se guarda en la variable edad
         edad = int(input("Ingrese la edad del compañero: "))
-        compañero = (nombre,edad)
+        compañero = (nombre,edad) #Creacion de Tupla con los valores ingresados en esas variables
         compañeros.append(compañero) #Con append agrego un elemento en ultima posicion a una lista, en este caso a lista compañeros
         compañeros.sort(key=lambda x:x[1]) #Ordena de Mayor a menor segun la edad, con el metodo .Sort 
         asistente = compañeros [0][0]
         profesor = compañeros [-1][0]
-        return asistente, profesor
+        
+    return asistente, profesor
     
 asistente, profesor = obtener_compañeros (19)
 
 print(f"El profesor es: {profesor} y el asistente es {asistente}")
+
+#Crear funcion que al pasarle un numero, genere numero primo hasta llegar a ese numero 
+

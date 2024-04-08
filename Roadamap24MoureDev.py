@@ -136,3 +136,83 @@ for numero_ejercicio in range (10,55):
         print(numero_ejercicio)
         
         
+""""
+ * EJERCICIO:
+ * - Crea ejemplos de funciones básicas que representen las diferentes
+ *   posibilidades del lenguaje:
+ *   Sin parámetros ni retorno, con uno o varios parámetros, con retorno...
+ * - Comprueba si puedes crear funciones dentro de funciones.
+ * - Utiliza algún ejemplo de funciones ya creadas en el lenguaje.
+ * - Pon a prueba el concepto de variable LOCAL y GLOBAL.
+ * - Debes hacer print por consola del resultado de todos los ejemplos.
+ *   (y tener en cuenta que cada lenguaje puede poseer más o menos posibilidades)
+ *
+ * DIFICULTAD EXTRA (opcional):
+ * Crea una función que reciba dos parámetros de tipo cadena de texto y retorne un número.
+ * - La función imprime todos los números del 1 al 100. Teniendo en cuenta que:
+ *   - Si el número es múltiplo de 3, muestra la cadena de texto del primer parámetro.
+ *   - Si el número es múltiplo de 5, muestra la cadena de texto del segundo parámetro.
+ *   - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
+ *   - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
+ *
+ * Presta especial atención a la sintaxis que debes utilizar en cada uno de los casos.
+ * Cada lenguaje sigue una convenciones que debes de respetar para que el código se entienda.
+ */
+  """
+  
+def Welcome(): #Declaracion de Funcion
+    print("Welcome") #Contenido de Funcion, unicame realiza una impresion en consola
+Welcome() #Invocacion de la Funcion
+
+def cuadrado(x): #Declaracion de Funcion que recibe un parametro
+    return x ** 2 #Retorna el resultado de la elevacion del parametro al cuadrado
+resultado = cuadrado(5) #Se asigna valor a una variable, invocando a la funcion con un parametro indicado, en este caso 5
+print("El cuadrado de 5 es:", resultado) #Impresion de la variable (Por fuera de la funcion)
+
+def suma(z, x): #Declaracion de Funcion que recibe dos parametros
+    return z + x #Retorna el resultado de la suma de los dos parametros
+resultado = suma(144, 144) #Se asigna valor a la variable, invocando a la funcion con los parametros indicados, en este caso 144 y 144
+print("La suma de 144 y 144 es:", resultado) #Impresion de la variable
+
+def exterior(): #Declaracion de Funcion con otra funcion dentro suyo
+    def interior(): #Funcion interior dentro del cuerpo de otra funcion 
+        print("¡Función interior ejecutada!") 
+    print("Ejecutando la función exterior.")
+    interior()
+exterior()
+
+
+variable_global = 10 #Declaracion de Variable Global
+def funcion_comprueba_variable_global(): #Declaracion de funcion 
+    variable_local = 5 #Declaracion de Variable Local
+    print("Variable local dentro de la función:", variable_local)
+    print("Variable global dentro de la función:", variable_global)
+funcion_comprueba_variable_global() #Invocacion a Funcion
+print("Variable global fuera de la función:", variable_global)
+
+cuadrado = lambda x: x ** 2 #Funcion Lambda 
+print("El cuadrado de 4 es:", cuadrado(4))
+
+
+#EJERCICIO 
+
+def funcion_retorna_numeros (a,b):
+    contador = 0 
+    for numero in range(1, 101):
+        if numero % 3 == 0 and numero % 5 == 0:
+            print(f"El {numero}, En este caso es multiplo de 3 y de 5 el numero: {a} y del {b}")
+    
+        elif numero % 3 == 0:
+            print(f"El {numero}, En este caso, el numero es multiplo de 3: {a}")
+         
+        elif numero % 5 == 0:
+            print (f"El {numero}, En este caso, el numero es multiplo de 5: {b}")   
+            
+        else:
+            print(f"{numero}No es ni multiplo de 3 ni de 5.")
+        contador += 1
+            
+    return contador
+  
+contador = funcion_retorna_numeros("Ventaja del 3", "Ventaja del 5")
+print("Número de veces que se ha impreso el número:", contador)
