@@ -23,9 +23,9 @@ print (f"El curso actual dura un {diferencia_con_promedio} % menos que el mas pr
     
   
 crudo_promedio = 5 
-crudo_actual = 3,5  
+crudo_actual = 3 
 
-tiempo_vacio_removido_curso_actual =    100 - (tiempo_curso_actual * 1000// crudo_actual / 10 
+tiempo_vacio_removido_curso_actual =    100 - (tiempo_curso_actual * 1000// crudo_actual / 10)
 tiempo_vacio_removido = 100 - (promedio_tiempo_cursos * 1000) // crudo_promedio / 10 
 
 print(f"Un curso promedio elimina un {tiempo_vacio_removido}% de tiempo")
@@ -34,3 +34,26 @@ print(f"El curso actual elimino un {tiempo_vacio_removido_curso_actual}& de tiem
 #Ver 10 horas de este curso a cuantas horas de otro curso equivale y ver las 10 horas de otros cursos a cuantas horas equivale de este curso
 
 print(f"Ver 10 horas de este curso equivale a ver {promedio_tiempo_cursos * 100 // tiempo_curso_actual / 10} horas de otros curso" )
+
+
+
+#Ejercicio 2. Hoy falto el profesor de clases, y los chicos se organizaron para armar su clase, un alumno es el profesor y el otro es el asistente. 
+#A) Solicitar la edad de los compañeros que asistieron a clase y ordenar datos de mayor a menos 
+#B) El mayor de la clase es el profesor y el menor es el asistente, ¿Quien es quien?
+
+
+def obtener_compañeros (cantidad):
+    compañeros = []
+    for i in range(18):
+        nombre = input("Ingrese el nombre del compañero: ")
+        edad = int(input("Ingrese la edad del compañero: "))
+        compañero = (nombre,edad)
+        compañeros.append(compañero) #Con append agrego un elemento en ultima posicion a una lista, en este caso a lista compañeros
+        compañeros.sort(key=lambda x:x[1]) #Ordena de Mayor a menor segun la edad, con el metodo .Sort 
+        asistente = compañeros [0][0]
+        profesor = compañeros [-1][0]
+        return asistente, profesor
+    
+asistente, profesor = obtener_compañeros (19)
+
+print(f"El profesor es: {profesor} y el asistente es {asistente}")

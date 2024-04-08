@@ -393,8 +393,80 @@ numero_mas_alto = max(lista_de_maximo) #MAX
 print (numero_mas_alto)
 
 #Redondear a decimales 
-  
-  
-  
-  
 
+numero_para_redondear = round (12345.12,2) #ROUND y el 2 es el segundo parametro que recibe para los espacios despues de la coma 
+print (numero_para_redondear)
+  
+  
+#Retorna False si el parametro es -> 0, null, False, ninguno
+
+resultado_bool = bool (None)
+print(resultado_bool)
+  
+  
+#Retorna True, si todos los valores son verdaderos
+
+resultado_all = all([12, "true", [1,2,3]])
+print(resultado_all)
+
+resultado_all2= all ([12,12, False])
+print(resultado_all2) #Va a devolver False porque hay un solo valor False 
+
+#Funciones propias
+
+#Creacion de funcion simple
+def saludo (): 
+     print("Saludo")
+     
+#Invocar Funcion
+saludo()
+
+
+#Funcion con parametro
+
+def saludo2(nombre, sexo):
+    sexo = sexo.lower()
+    if (sexo == "mujer"):
+        adjetivo = "reina"
+    elif (sexo == "hombre"):
+        adjetivo = "titan"
+    else:
+        adjetivo = "Crack"
+    print(f"Hola {nombre}, mi {adjetivo} como estas?")     
+    
+saludo2 ("Karen", "Mujer")
+saludo2 ("Gerardo", "Hombre")
+saludo2 ("Fran", "No binario")
+
+#Creando funcion que retorne valores
+
+def creacion_contraseña_random (num):
+   chars = "abcdefghij"
+   num_entero = str(num) #str(num) convierte el número num en una cadena de texto. 
+   num = int(num_entero[0]) #Se obtiene el primer dígito del número convertido a cadena num_entero y se convierte nuevamente a un número entero. Esto se hace para obtener un valor numérico a partir del primer dígito del número original.
+   c1 = num - 2
+   c2 = num
+   c3 = num - 5
+   contraseña =  f"{chars[c1]}{chars[c2]}{chars[c3]}{num*2}" #a cadena chars contiene los caracteres "abcdefghij", chars[c1], chars[c2] y chars[c3] seleccionan los caracteres en las posiciones c1, c2 y c3 respectivamente.
+   return contraseña, num #Permite con el return que el dato se guarde, en este caso retorna valores multiples, es decir la contraseña que se va a obtener y el numero que se utilizo para obtenerla
+
+passw, num_utilizado = creacion_contraseña_random(4)
+print (f"tu contraseña nueva es: {passw}")
+print (f"el numero utilizado fue: {num_utilizado}")
+
+#Funcion propia con parametro Args
+
+def suma (*nums): #El * indica que se utiliza el Parametro Args, indicando que todos los elementos pasaran a ser recopilados como una tupla 
+    return sum(nums)
+
+resultado_suma_funcion = suma(2,7,12,14,12)
+print(resultado_suma_funcion)
+
+#Funciones Lambda 
+
+nombre_lambda = lambda x : x*2 #funciones anonimas 
+print (nombre_lambda) #retorna automaticamente, no es necesario colocar return
+
+numeros_lambda = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+numeros_pares = filter(lambda numero:numero%2 == 0, numeros_lambda)
+print(list(numeros_pares))
