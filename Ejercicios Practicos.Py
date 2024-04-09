@@ -60,5 +60,21 @@ asistente, profesor = obtener_compañeros (19)
 
 print(f"El profesor es: {profesor} y el asistente es {asistente}")
 
-#Crear funcion que al pasarle un numero, genere numero primo hasta llegar a ese numero 
+#B) Crear funcion que al pasarle un numero, genere numero primo hasta llegar a ese numero 
 
+def numero_primo (detecta_numero_primo): #Creacion de Funcion
+    for i in range(2,detecta_numero_primo-1): #Verifica que el numero de parametro no pueda ser dividido por dos ni por ese mismo numero - 1
+        if detecta_numero_primo%i==0: return False 
+        #Si es divisible por alguno retorna False y finaliza el bucle
+    return True  #Si termina el bucle significa que no fue divisible por ningun numero entonces es Primo
+
+def primo_hasta (detecta_numero_primo): #Creacion de funcion que retorne todos los numeros primos hasta llegar a el parametro
+    primos = [] #Creacion de Lista donde se van a almacenar
+    for i in range (3,detecta_numero_primo+1):
+      resultado_primo = primo_hasta(i) #Para cada número i en el rango, se llama a la función primo_hasta con el número i como argumento. Esto se hace para verificar si el número i es primo.
+      if resultado_primo == True: primos.append(i)
+      #Se verifica si el resultado retornado por la función primo_hasta es True, es decir, si el número i es primo. Si es asi se agrega a la lista mediante metodo append
+    return primos #Se retorna la lista
+      
+resultado_primo = numero_primo(16)
+print (resultado_primo)

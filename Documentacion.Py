@@ -470,3 +470,49 @@ print (nombre_lambda) #retorna automaticamente, no es necesario colocar return
 numeros_lambda = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 numeros_pares = filter(lambda numero:numero%2 == 0, numeros_lambda)
 print(list(numeros_pares))
+
+#Modulos
+
+#Todos los archivos que finalizan en extension .Py son Modulos
+#Se pueden invocar los modulos desde otros modulos
+
+#Python Modulos, modulos creados por Python (basados en C)
+#Modulos de Terceros
+#Modulos Propios
+
+#A traves de Import se solicta el archivo
+
+import Roadamap24MoureDev as Rm 
+
+retorna_numero =  Rm.funcion_retorna_numeros(12,90)
+print (retorna_numero)
+
+#Operador As --> Se le asigna un nombre distinto al archivo 
+
+from Roadamap24MoureDev import cuadrado, exterior as ex
+
+#Selecciona el From directamente las funciones son importadas seleccionadas y la segunda funcion se la renombra con un nuevo nombre mediante el operador as 
+
+#Mediante el * luego del import y el modulo, selecciona todo el programa 
+
+
+#Enrutamiento de Modulos
+
+from Enrut.enrutamiento import suma_cuadrados as sc
+#Seleccionar carpeta, posterior a el ".", el nombre del archivo
+
+print (sc(20,30))
+
+import sys
+print (sys) #Modulo construido en Python
+
+print (sys.builtin_module_names)#Metodos de Sys 
+print (sys.path) #Ruta de los modulos 
+
+
+
+#Paquetes
+
+
+
+ 
