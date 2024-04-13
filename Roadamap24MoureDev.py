@@ -360,12 +360,12 @@ diccionario_agenda = {
     "Doctor": 1199897621,
     "Drago" : 1128281723
 }
-
 def mostrar_contactos (diccionario_agenda):
     print("La lista de contactos actual es la siguiente:")
-    for nombre, telefono in diccionario_agenda.items():
+    # Ordenar las claves del diccionario (nombres) alfabéticamente
+    for nombre in sorted(diccionario_agenda.keys()):
+        telefono = diccionario_agenda[nombre]  # Obtener el número de teléfono del nombre
         print(f"{nombre}: {telefono}")
-
 def insertar_contacto(diccionario_agenda): 
     nombre = input("Ingrese el nombre del contacto: ")
     telefono = input("Ingrese el número de teléfono del contacto: ")
@@ -380,13 +380,33 @@ def insertar_contacto(diccionario_agenda):
             print("El contacto ya existe en la agenda.")
     else:
         print("El número de teléfono debe contener solo dígitos numericos y tener como máximo 11 caracteres.")
+def actualizar_contacto(diccionario_agenda):
+    nombre = input("Ingrese el nombre del contacto que desea actualizar: ")
+    if nombre in diccionario_agenda:
+        telefono = input("Ingrese el nuevo número de teléfono: ")
 
-def actualizar_contacto():
-    print("Actualizar contacto")
-
-def eliminar_contacto(): 
-    print("Eliminar contacto")
-
+        # Verificar si el número de teléfono es numérico y tiene la longitud adecuada
+        if telefono.isdigit() and len(telefono) <= 11:  # Se puede ajustar la longitud según sea necesario
+            diccionario_agenda[nombre] = telefono
+            print(f"El contacto '{nombre}' ha sido actualizado correctamente.")
+        else:
+            print("El número de teléfono ingresado no es válido.")
+    else:
+        print(f"No se encontró el contacto '{nombre}' en la agenda.")
+def eliminar_contacto(diccionario_agenda): 
+    contacto_para_eliminar = input("Ingrese el nombre del contacto que desea Eliminar: ") #Solicita a Usuario contacto para borrar
+    contacto_para_eliminar = contacto_para_eliminar.lower()  # Convierte a minusculas el nombre ingresado por el usuario 
+    
+    
+    diccionario_agenda_minusculas = {key.lower():value for key, value in diccionario_agenda.items()}
+    #crea un nuevo diccionario. Para cada par clave-valor en el diccionario original, toma la clave y la convierte a minúsculas, luego asigna esta clave en minúsculas al valor correspondiente en el nuevo diccionario
+    
+    if contacto_para_eliminar in diccionario_agenda_minusculas: #Comprueba si el nombre del contacto (en minúsculas) está presente como clave en el diccionario diccionario_agenda_minusculas
+        nombre_real = next(key for key, value in diccionario_agenda.items() if key.lower() == contacto_para_eliminar)
+        eliminado = diccionario_agenda.pop(nombre_real)
+        print(f"El contacto '{nombre_real}' ha sido borrado exitosamente")
+    else:
+        print("No se han encontrado coincidencias")   
 def buscar_contacto(diccionario_agenda): #Recibe parametro el diccionario anteriormente declarado
     eleccion_usuario = input("Ingrese un dígito numerico, letra o nombre completo para buscar contactos: ") #Solicitamos al usuario que ingrese   
     resultado_busqueda_contactos = False  #Variable booleana declarada 
@@ -402,7 +422,6 @@ def buscar_contacto(diccionario_agenda): #Recibe parametro el diccionario anteri
 
     if not resultado_busqueda_contactos: 
         print("No se encontraron coincidencias.")
-
 def opciones_agenda():
     funciones = {
         1: buscar_contacto,
@@ -440,29 +459,3 @@ def opciones_agenda():
             print("Por favor, ingrese un número válido.")
 
 opciones_agenda()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def agenda():
-    opciones_agenda()
-
-agenda()
