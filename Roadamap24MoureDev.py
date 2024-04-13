@@ -236,3 +236,233 @@ print("Número de veces que se ha impreso el número:", contador)
  */
  
  """
+# Lista vacía
+lista_vacia = []
+
+# Lista con elementos
+mi_lista = [1, 2, 3, 4, 5]
+
+# Lista de listas (matriz)
+matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+
+
+#Inserción
+# Agregar un elemento al final de la lista
+mi_lista.append(6)
+
+# Insertar un elemento en una posición específica
+mi_lista.insert(0, 0)
+
+#Borrado
+# Eliminar el último elemento de la lista
+ultimo_elemento = mi_lista.pop()
+
+# Eliminar un elemento en una posición específica
+elemento_eliminado = mi_lista.pop(0)
+
+# Eliminar un elemento por valor
+mi_lista.remove(3)
+
+#Actualización:
+
+# Actualizar un elemento en una posición específica
+mi_lista[0] = 10
+
+#Ordenación
+# Ordenar la lista en su lugar (ascendente)
+mi_lista.sort()
+
+# Ordenar la lista en su lugar (descendente)
+mi_lista.sort(reverse=True)
+
+# Crear una nueva lista ordenada (ascendente)
+lista_ordenada = sorted(mi_lista)
+
+# Crear una nueva lista ordenada (descendente)
+lista_ordenada_desc = sorted(mi_lista, reverse=True)
+
+
+#TUPLAS --> INMUTABLES
+# Tupla vacía
+tupla_vacia = ()
+
+# Tupla con elementos
+mi_tupla = (1, 2, 3, 4, 5)
+
+
+
+# Conjunto vacío (sets)
+conjunto_vacio = set()
+
+# Conjunto con elementos
+mi_conjunto = {1, 2, 3, 4, 5}
+
+#Inserción 
+# Añadir un elemento
+mi_conjunto.add(6)
+
+# Añadir múltiples elementos
+mi_conjunto.update({7, 8, 9})
+
+#Borrado
+# Eliminar un elemento
+mi_conjunto.remove(3)
+
+
+
+
+
+
+# Diccionario vacío
+diccionario_vacio = {}
+
+# Diccionario con elementos
+mi_diccionario = {'a': 1, 'b': 2, 'c': 3}
+#Inserción 
+# Agregar un nuevo par clave-valor
+mi_diccionario['d'] = 4
+
+
+#Borrado 
+# Eliminar un par clave-valor
+del mi_diccionario['a']
+
+# Eliminar un par clave-valor y devolver el valor
+valor_eliminado = mi_diccionario.pop('b')
+
+
+#Actualización
+# Actualizar el valor de una clave existente
+mi_diccionario['c'] = 10
+
+"""" 
+ * DIFICULTAD EXTRA (opcional):
+ * Crea una agenda de contactos por terminal.
+ * - Debes implementar funcionalidades de búsqueda, inserción, actualización
+ *   y eliminación de contactos.
+ * - Cada contacto debe tener un nombre y un número de teléfono.
+ * - El programa solicita en primer lugar cuál es la operación que se quiere realizar,
+ *   y a continuación los datos necesarios para llevarla a cabo.
+ * - El programa no puede dejar introducir números de teléfono no númericos y con más
+ *   de 11 dígitos (o el número de dígitos que quieras).
+ * - También se debe proponer una operación de finalización del programa.
+ */ """ 
+ 
+ 
+ 
+ 
+ 
+diccionario_agenda = {
+    "Stacy": 1123432219,
+    "Klaus": 1166544321,
+    "Chinese": 1222334321,
+    "Doctor": 1199897621,
+    "Drago" : 1128281723
+}
+
+def mostrar_contactos (diccionario_agenda):
+    print("La lista de contactos actual es la siguiente:")
+    for nombre, telefono in diccionario_agenda.items():
+        print(f"{nombre}: {telefono}")
+
+def insertar_contacto(diccionario_agenda): 
+    nombre = input("Ingrese el nombre del contacto: ")
+    telefono = input("Ingrese el número de teléfono del contacto: ")
+
+    # Verifica si el número de teléfono tiene solo dígitos y no tiene más de 11 dígitos
+    if telefono.isdigit() and len(telefono) <= 11:
+        # Verificar si el nombre no está en el diccionario
+        if nombre not in diccionario_agenda:
+            diccionario_agenda[nombre] = telefono
+            print("Contacto agregado exitosamente.")
+        else:
+            print("El contacto ya existe en la agenda.")
+    else:
+        print("El número de teléfono debe contener solo dígitos numericos y tener como máximo 11 caracteres.")
+
+def actualizar_contacto():
+    print("Actualizar contacto")
+
+def eliminar_contacto(): 
+    print("Eliminar contacto")
+
+def buscar_contacto(diccionario_agenda): #Recibe parametro el diccionario anteriormente declarado
+    eleccion_usuario = input("Ingrese un dígito numerico, letra o nombre completo para buscar contactos: ") #Solicitamos al usuario que ingrese   
+    resultado_busqueda_contactos = False  #Variable booleana declarada 
+
+    for nombre, telefono in diccionario_agenda.items(): #Bucle que itera sobre todos los elementos del diccionario por el metodo .items a cada clave-valor del diccionario, se le asigna variable nombre y telefono 
+        if eleccion_usuario in str(telefono): #Verifica si el digito colocado por el usuario se encuentra el valor de alguno de los telefonos 
+            print(f"El contacto puede ser: {nombre} - {telefono}")
+            resultado_busqueda_contactos = True 
+        else:  # Si la entrada del usuario no es un dígito numérico
+            if eleccion_usuario.lower() in nombre.lower() or nombre.lower().startswith(eleccion_usuario.lower()):
+                print(f"{nombre}: {telefono}")
+                resultado_busqueda_contactos = True 
+
+    if not resultado_busqueda_contactos: 
+        print("No se encontraron coincidencias.")
+
+def opciones_agenda():
+    funciones = {
+        1: buscar_contacto,
+        2: insertar_contacto,
+        3: actualizar_contacto,
+        4: eliminar_contacto,
+        5: mostrar_contactos
+    }
+    while True:
+        print("\nSeleccione una opción:")
+        print("1. Buscar contacto")
+        print("2. Insertar contacto")
+        print("3. Actualizar contacto")
+        print("4. Eliminar contacto")
+        print("5. Mostrar Contactos")
+        print("6. Cerrar agenda ")
+        numero_usuario = input("Ingrese un número para seleccionar una opción: ")
+
+        if numero_usuario.isdigit():
+            numero_usuario = int(numero_usuario)
+            if numero_usuario == 6:
+                confirmacion = input("¿Está seguro de cerrar la agenda? (si/no): ")
+                if confirmacion.lower() == "si":
+                    print("Cerrando la agenda...")
+                    break
+                elif confirmacion.lower() == "no":
+                    print("Continuando en el sistema...")
+                else:
+                    print("Respuesta no válida. Por favor, responda 'si' o 'no'.")
+            elif numero_usuario in funciones:
+                funciones[numero_usuario](diccionario_agenda)
+            else:
+                print("Número de función no válido.")
+        else:
+            print("Por favor, ingrese un número válido.")
+
+opciones_agenda()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def agenda():
+    opciones_agenda()
+
+agenda()

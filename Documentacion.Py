@@ -513,6 +513,11 @@ print (sys.path) #Ruta de los modulos
 
 #Paquetes
 
+#Una carpeta con varios modulos 
+
+#Debe tener el archivo __init__.py 
+
+ 
 
 
  
