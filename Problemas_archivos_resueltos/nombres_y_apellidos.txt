@@ -1,0 +1,25 @@
+Los datos son: 
+Nombre: Sofía
+Apellido: García
+-----------------
+Nombre: Martín
+Apellido: Rodríguez
+-----------------
+Nombre: Alejandro
+Apellido: Martínez
+-----------------
+Nombre: Camila
+Apellido: López
+-----------------
+Nombre: Sebastián
+Apellido: González
+-----------------
+Nombre: Isabella
+Apellido: Pérez
+-----------------
+Nombre: Nombre
+Apellido: Sánchez
+-----------------
+Nombre: Mateo
+Apellido: Romero
+-----------------
