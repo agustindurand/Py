@@ -350,9 +350,6 @@ mi_diccionario['c'] = 10
  */ """ 
  
  
- 
- 
- 
 diccionario_agenda = {
     "Stacy": 1123432219,
     "Klaus": 1166544321,
@@ -459,3 +456,99 @@ def opciones_agenda():
             print("Por favor, ingrese un número válido.")
 
 opciones_agenda()
+
+
+"""
+EJERCICIO:
+ * Muestra ejemplos de todas las operaciones que puedes realizar con cadenas de caracteres
+ * en tu lenguaje. Algunas de esas operaciones podrían ser (busca todas las que puedas):
+ * - Acceso a caracteres específicos, subcadenas, longitud, concatenación, repetición,
+ *   recorrido, conversión a mayúsculas y minúsculas, reemplazo, división, unión,
+ *   interpolación, verificación... """
+ 
+cadena_acceder_caracter = "I am Work in Python"
+tercer_caracter = cadena_acceder_caracter[3]  
+print(tercer_caracter) 
+
+
+
+subcadena = cadena_acceder_caracter[1:5]  
+print(subcadena) 
+
+
+longitud = len(cadena_acceder_caracter)
+print(longitud) 
+
+
+otra_cadena = "¡Hello!"
+concatenada = cadena_acceder_caracter + " " + otra_cadena
+print(concatenada)  
+
+
+repetida = otra_cadena * 3
+print(repetida) 
+
+
+for caracter in cadena_acceder_caracter:
+    print(caracter)
+
+
+mayusculas = cadena_acceder_caracter.upper()
+print(mayusculas)  
+
+minusculas = cadena_acceder_caracter.lower()
+print(minusculas)  # Output: 'hola mundo'
+
+
+reemplazada = cadena_acceder_caracter.replace("Python", "Js")
+print(reemplazada)  
+
+
+palabras = cadena_acceder_caracter.split()
+print(palabras) 
+
+
+palabras = ['Hola', 'mundo']
+unida = ' '.join(palabras)
+print(unida)  # Output: 'Hola mundo'
+
+
+
+"""" 
+ * DIFICULTAD EXTRA (opcional):
+ * Crea un programa que analice dos palabras diferentes y realice comprobaciones
+ * para descubrir si son:
+ * - Palíndromos
+ * - Anagramas
+ * - Isogramas
+ */
+"""
+ 
+def es_palindromo(palabra):
+    palabra = palabra.lower()
+    return list(palabra) == list(reversed(palabra))
+
+def son_anagramas(palabra1, palabra2):
+    palabra1 = palabra1.lower()
+    palabra2 = palabra2.lower()
+    return sorted(palabra1) == sorted(palabra2)
+
+def es_isograma(palabra):
+    palabra = palabra.lower()
+    letras_unicas = set(palabra)
+    return len(letras_unicas) == len(palabra)
+
+def detector_palabras(palabra1, palabra2):
+    if es_palindromo(palabra1) and es_palindromo(palabra2):
+        print("Ambas palabras son palíndromos.")
+    elif son_anagramas(palabra1, palabra2):
+        print("Las palabras son anagramas.")
+    elif es_isograma(palabra1) and es_isograma(palabra2):
+        print("Ninguna palabra es un palíndromo o un anagrama, pero ambas son isogramas.")
+    else:
+        print("Las palabras no son palíndromos, anagramas ni isogramas.")
+
+# Ejemplo de uso
+palabra1 = input("Ingrese la primera palabra: ")
+palabra2 = input("Ingrese la segunda palabra: ")
+detector_palabras(palabra1, palabra2)
