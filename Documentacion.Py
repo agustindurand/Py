@@ -518,3 +518,37 @@ print (sys.path) #Ruta de los modulos
 #Debe tener el archivo __init__.py 
 
 
+#Excepciones
+
+#Eventos que interrumpen el flujo del programa
+#try y except son bloques utilizados para manejar excepciones. Las excepciones son errores que ocurren durante la ejecución de un programa. El bloque try permite probar un bloque de código en busca de errores, mientras que el bloque except permite manejar cualquier excepción que ocurra dentro del bloque try.
+
+def sumar_tres():
+    a = input("Numero 1:  ")
+    a = input("Numero 1:  ") #Si aca se ingresara un string, lanzaria una excepcion VALUE-ERROR 
+    while True:
+          a = input("Numero 1:  ")
+          b = input("Numero 1:  ")
+          try: #Intenta a pesar de la excepcion continuar con el programa 
+                resultado = int (a)+(b)
+                break 
+          except:
+            print("No te detengas")
+    return resultado
+
+print(sumar_tres())
+
+
+
+
+try: #Intentar o Probar
+    numero = int("texto")  # Intenta convertir una cadena en un entero
+except ValueError:
+    print("¡Error! No se puede convertir texto en un número entero.")
+    
+    
+    
+try:
+ archivo = open("archivo_no_existente.txt", "r")  # Intenta abrir un archivo que no existe
+except FileNotFoundError:
+    print("¡Error! El archivo no existe.")
